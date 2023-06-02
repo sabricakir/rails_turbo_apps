@@ -77,3 +77,4 @@ group :test do
 end
 
 gem 'faker', '~> 3.2'
+gem 'icalendar', '~> 2.8'
