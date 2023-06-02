@@ -24,7 +24,9 @@
     <%= game.address %>
   </p>
 
+  <%= link_to 'send invite email', invite_game_path(game), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   <%= link_to 'add to calendar', game_path(game, format: :ics), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
 
   <% if action_name != "show" %>
     <%= link_to "Show this game", game, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

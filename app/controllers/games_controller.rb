@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[ show edit update destroy ]
+  before_action :set_game, only: %i[ show edit update destroy invite]
 
   # GET /games or /games.json
   def index
@@ -61,6 +61,11 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def invite
+    GameMailer.with(game: @game).invite.deliver_now
+    redirect_to game_url(@game), notice: "Game was successfully invited."
   end
 
   private

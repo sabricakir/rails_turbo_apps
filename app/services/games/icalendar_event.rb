@@ -18,8 +18,11 @@ class Games::IcalendarEvent
       e.url         = Rails.application.routes.url_helpers.game_url(@game)
       e.uid         = "game_#{@game.id}"
       e.sequence    = Time.now.to_i
+      e.organizer   = Icalendar::Values::CalAddress.new("mailto:#{ApplicationMailer.default[:from]}", cn: "Sabri Cakir")
+      e.attendee    = Icalendar::Values::CalAddress.new("mailto: test@gmail.com") #partstat: 'accepted') # invoke current_user in here
     end
     cal.publish
+    cal.ip_method = "REQUEST"
     cal.to_ical
   end
 end
