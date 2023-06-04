@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   # GET /games or /games.json
   def index
-    @games = Game.all
+    @games = Game.all.order(created_at: :desc)
   end
 
   # GET /games/1 or /games/1.json

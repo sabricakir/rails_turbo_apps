@@ -1,28 +1,12 @@
 <div id="<%= dom_id game %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Starts at:</strong>
-    <%= game.starts_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Ends at:</strong>
-    <%= game.ends_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= game.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= game.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= game.address %>
-  </p>
+  <% Game::EDITABLE_ATTRIBUTES.each do |attr| %>
+    <%= turbo_frame_tag attr do %>
+      <p class="my-5">
+        <strong class="block font-medium mb-1"><%= attr %>:</strong>
+        <%= link_to (game[attr].presence || 'Edit'), edit_game_path(game, attribute: attr), class: 'underline text-blue-500 hover:text-blue-700 font-medium' %>
+      </p>
+    <% end %>
+  <% end %>
 
   <%= link_to 'send invite email', invite_game_path(game), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   <%= link_to 'add to calendar', game_path(game, format: :ics), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
