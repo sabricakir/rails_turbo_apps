@@ -4,6 +4,20 @@
     <%= post.body %>
   </p>
 
+  <p>
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= post.user&.email %>
+  </p>
+
+  <p>
+    <strong class="block font-medium mb-1">Tags:</strong>
+    <% post.tags.each do |tag| %>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+        <%= tag.name %>
+      </span>
+    <% end %>
+  </p>
+
   <% if action_name != "show" %>
     <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
