@@ -18,12 +18,12 @@
 
   <div class="my-5">
     <%= form.label :user %>
-    <%= form.select :user_id, User.pluck(:email, :id) %>
+    <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true}, {data: {controller: 'advanced-select'}}%>
   </div>
 
   <div class="my-5">
     <%= form.label :tag %>
-    <%= form.select :tag_ids, Tag.pluck(:name, :id), {}, {multiple: true} %>
+    <%= form.select :tag_ids, Tag.pluck(:name, :id), {}, {multiple: true, data: {controller: 'advanced-select'}} %>
   </div>
 
   <div class="inline">

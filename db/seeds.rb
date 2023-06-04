@@ -12,5 +12,6 @@
   #description = Faker::Quote.famous_last_words
   #address = Faker::Address.full_address
   #game = Game.create(starts_at:, ends_at:, title:, description:, address:)
-  Tag.create(name: Faker::Game.genre)
+  #User.create(email: Faker::Internet.email)
+  #Tag.create(name: Faker::Game.genre)
 end
