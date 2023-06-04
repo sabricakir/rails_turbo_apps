@@ -1,0 +1,15 @@
+<h1> You have invited to <%= @game.title %></h1>
+
+<h3> Game Details: </h3>
+<ul>
+  <li> Description: <%= @game.description %> </li>
+  <br>
+  <li> Starts Time: <%= @game.starts_at %> </li>
+  <br>
+  <li> Ends Time: <%= @game.ends_at %> </li>
+  <br>
+  <li> Location: <%= @game.address %> </li>
+  <br>
+  <li> Url: <%= game_url(@game) %> </li>
+  <br>
+</ul>

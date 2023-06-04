@@ -75,3 +75,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'faker', '~> 3.2'
+gem 'icalendar', '~> 2.8'
