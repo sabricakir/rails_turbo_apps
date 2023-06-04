@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  belongs_to :user
+  has_and_belongs_to_many :tags
   # broadcasts_to ->(_post) { :posts_list }
 
   # after_commit { broadcast_append_to :posts_list, on: :create }
