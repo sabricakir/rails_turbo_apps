@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <%#= turbo_stream_from :online_users, channel: OnlineChannel %>
+    <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= link_to 'Home', static_pages_home_path %>
     <%= link_to 'Dashboard', static_pages_dashboard_path %>
     <%= link_to 'Root', root_path %>
