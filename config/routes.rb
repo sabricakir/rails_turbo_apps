@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/home', to: 'static_pages#home'
+  get 'static_pages/dashboard', to: 'static_pages#dashboard'
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get  "sign_up", to: "registrations#new"
