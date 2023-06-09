@@ -78,3 +78,7 @@ end
 
 gem 'faker', '~> 3.2'
 gem 'icalendar', '~> 2.8'
+
+gem "authentication-zero", "~> 2.16"
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+gem "bcrypt", "~> 3.1.7"
