@@ -9,7 +9,7 @@
   </div>
 
   <div id="lists" class="min-w-full">
-    <ul class="list-disc">
+    <ul class="list-disc" data-controller="sortable">
       <% @lists.each do |list| %>
         <li>
           <%= render list %>
