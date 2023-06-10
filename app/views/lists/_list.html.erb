@@ -4,7 +4,7 @@
     <%= list.name %>
   </p>
 
-  <ul class="list-disc ml-12" data-controller="sortable">
+  <ul class="list-disc ml-12" data-controller="sortable" data-sortable-list-id="<%= list.id %>" data-sortable-group-value="tasks">
     <% list.tasks.rank(:row_order).each do |task| %>
       <li data-sortable-url="<%= sort_task_path(task) %>">
         <%= render task %>

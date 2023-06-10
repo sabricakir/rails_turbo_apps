@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   def sort
     task = Task.find(params[:id])
-    task.update(row_order_position: params[:row_order_position])
+    task.update(row_order_position: params[:row_order_position], list_id: params[:list_id])
     render body: nil
   end
   # GET /tasks/1 or /tasks/1.json
