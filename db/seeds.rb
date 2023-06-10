@@ -16,3 +16,10 @@
   #Tag.create(name: Faker::Game.genre)
   #Product.create(name: Faker::Commerce.product_name)
 end
+list = List.create!(name: "TODO")
+list.tasks.create!(name: "Buy milk")
+list.tasks.create!(name: "Buy eggs")
+list.tasks.create!(name: "Buy bread")
+list.tasks.create!(name: "Walk the dog")
+list = List.create!(name: "In Progress")
+list = List.create!(name: "Done")
