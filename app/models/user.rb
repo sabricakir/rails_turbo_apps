@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  kredis_unique_list :recently_viewed_products, limit: 5
+
   has_many :email_verification_tokens, dependent: :destroy
   has_many :password_reset_tokens, dependent: :destroy
   has_many :sessions, dependent: :destroy

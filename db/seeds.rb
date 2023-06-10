@@ -14,4 +14,5 @@
   #game = Game.create(starts_at:, ends_at:, title:, description:, address:)
   #User.create(email: Faker::Internet.email)
   #Tag.create(name: Faker::Game.genre)
+  #Product.create(name: Faker::Commerce.product_name)
 end
