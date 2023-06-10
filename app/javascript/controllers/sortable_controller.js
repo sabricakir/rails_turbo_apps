@@ -10,7 +10,7 @@ export default class extends Controller {
     })
   }
   onEnd(event) {
-    put(`/lists/${event.item.dataset.sortableId}/sort`, {
+    put(`${event.item.dataset.sortableUrl}`, {
       body: JSON.stringify({ row_order_position: event.newIndex })
     })
   }

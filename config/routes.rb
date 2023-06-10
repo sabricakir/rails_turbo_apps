@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tasks
   get 'home', to: 'home#index'
   get 'dashboard', to: 'static_pages#dashboard'
   get  "sign_in", to: "sessions#new"
@@ -22,6 +21,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :products, only: [:index, :show]
   resources :lists do
+    member do
+      put :sort
+    end
+  end
+  resources :tasks do
     member do
       put :sort
     end
