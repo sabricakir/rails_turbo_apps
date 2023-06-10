@@ -5,7 +5,7 @@
   </p>
 
   <ul class="list-disc ml-12">
-    <% list.tasks.each do |task| %>
+    <% list.tasks.rank(:row_order).each do |task| %>
       <li>
         <%= render task %>
       </li>
