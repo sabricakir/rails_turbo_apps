@@ -181,6 +181,8 @@ GEM
     regexp_parser (2.8.0)
     reline (0.3.4)
       io-console (~> 0.5)
+    requestjs-rails (0.0.10)
+      rails (>= 6.0.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.1)
@@ -244,6 +246,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   ranked-model (~> 0.4.8)
   redis (~> 4.0)
+  requestjs-rails (~> 0.0.10)
   selenium-webdriver
   sprockets-rails
   stimulus-rails

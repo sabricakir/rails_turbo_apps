@@ -85,3 +85,5 @@ gem "authentication-zero", "~> 2.16"
 gem "bcrypt", "~> 3.1.7"
 
 gem "ranked-model", "~> 0.4.8"
+
+gem "requestjs-rails", "~> 0.0.10"

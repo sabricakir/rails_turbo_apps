@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :products, only: [:index, :show]
-  resources :lists
+  resources :lists do
+    member do
+      put :sort
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

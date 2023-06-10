@@ -6,6 +6,12 @@ class ListsController < ApplicationController
     @lists = List.rank(:row_order)
   end
 
+  def sort
+    list = List.find(params[:id])
+    list.update(row_order_position: params[:row_order_position])
+    render body: nil
+  end
+
   # GET /lists/1 or /lists/1.json
   def show
   end
