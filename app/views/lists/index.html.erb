@@ -11,7 +11,7 @@
   <div id="lists" class="min-w-full">
     <ul class="list-disc" data-controller="sortable">
       <% @lists.each do |list| %>
-        <li>
+        <li data-sortable-id="<%= list.id %>">
           <%= render list %>
         </li>
       <% end %>
