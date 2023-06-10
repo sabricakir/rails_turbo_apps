@@ -13,10 +13,14 @@
   </head>
 
   <body>
+    <% Current.user&.recently_viewed_products.elements.each do |product| %>
+        <div class="text-blue-500 font-bold"><%= Product.find(product).name %></div>
+    <% end %>
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= link_to 'Home', static_pages_home_path %>
     <%= link_to 'Dashboard', static_pages_dashboard_path %>
     <%= link_to 'Root', root_path %>
+    <%= link_to 'Products', products_path %>
     <main class="container mx-auto mt-28 px-5">
       <%= yield %>
     </main>
