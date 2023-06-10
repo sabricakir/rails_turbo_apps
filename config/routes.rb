@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lists
   get 'static_pages/home', to: 'static_pages#home'
   get 'static_pages/dashboard', to: 'static_pages#dashboard'
   get  "sign_in", to: "sessions#new"
