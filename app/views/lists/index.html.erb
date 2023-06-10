@@ -9,6 +9,12 @@
   </div>
 
   <div id="lists" class="min-w-full">
-    <%= render @lists %>
+    <ul class="list-disc">
+      <% @lists.each do |list| %>
+        <li>
+          <%= render list %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
