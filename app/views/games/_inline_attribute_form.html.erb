@@ -1,0 +1,65 @@
+<%= turbo_frame_tag params[:attribute] do %>
+  <%= form_with(model: game, url: game_path(game, attribute: params[:attribute]), method: :patch, class: "contents") do |form| %>
+    <% if game.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+        <ul>
+          <% game.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'starts_at' %>
+      <div class="my-5">
+        <%= form.label :starts_at %>
+        <%= form.datetime_field :starts_at,
+                                onchange: "this.form.requestSubmit()",
+                                class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'ends_at' %>
+      <div class="my-5">
+        <%= form.label :ends_at %>
+        <%= form.datetime_field :ends_at,
+                                onchange: "this.form.requestSubmit()",
+                                class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'title' %>
+      <div class="my-5">
+        <%= form.label :title %>
+        <%= form.text_field :title,
+                            onchange: "this.form.requestSubmit()",
+                            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'description' %>
+      <div class="my-5">
+        <%= form.label :description %>
+        <%= form.text_area :description,
+                           rows: 4,
+                           onchange: "this.form.requestSubmit()",
+                           class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'address' %>
+      <div class="my-5">
+        <%= form.label :address %>
+        <%= form.text_area :address,
+                           rows: 4,
+                           onchange: "this.form.requestSubmit()",
+                           class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    <% end %>
+    <div class="inline">
+      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+<% end %>

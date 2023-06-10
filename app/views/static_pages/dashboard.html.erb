@@ -1,0 +1,11 @@
+<%#= turbo_stream_from :online_users, channel: OnlineChannel %>
+<div>
+  <h1 class="font-bold text-4xl">StaticPages#dashboard</h1>
+  <p>Find me in app/views/static_pages/dashboard.html.erb</p>
+</div>
+
+<div id="online_users_list">
+  <% @users.each do |user| %>
+   <%= render partial: 'users/user', locals: {user: user} %>
+  <% end %>
+</div>
