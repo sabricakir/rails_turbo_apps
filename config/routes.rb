@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :lists
-  get 'static_pages/home', to: 'static_pages#home'
-  get 'static_pages/dashboard', to: 'static_pages#dashboard'
+  resources :tasks
+  get 'home', to: 'home#index'
+  get 'dashboard', to: 'static_pages#dashboard'
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get  "sign_up", to: "registrations#new"
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resource :email_verification, only: [:show, :create]
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
-  root "home#index"
+  root "lists#index"
   resources :games do
     member do
       get 'invite', to: 'games#invite'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :products, only: [:index, :show]
+  resources :lists
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
