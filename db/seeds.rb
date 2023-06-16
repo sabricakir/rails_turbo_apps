@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-10.times do |index|
+100.times do |index|
   #starts_at = index.days.ago
   #ends_at = starts_at + 2*60*60
   #title = Faker::Sport.sport
@@ -15,11 +15,12 @@
   #User.create(email: Faker::Internet.email)
   #Tag.create(name: Faker::Game.genre)
   #Product.create(name: Faker::Commerce.product_name)
+  User.create(email: Faker::Internet.email, password: "password", password_confirmation: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
 end
-list = List.create!(name: "TODO")
-list.tasks.create!(name: "Buy milk")
-list.tasks.create!(name: "Buy eggs")
-list.tasks.create!(name: "Buy bread")
-list.tasks.create!(name: "Walk the dog")
-list = List.create!(name: "In Progress")
-list = List.create!(name: "Done")
+#list = List.create!(name: "TODO")
+#list.tasks.create!(name: "Buy milk")
+#list.tasks.create!(name: "Buy eggs")
+#list.tasks.create!(name: "Buy bread")
+#list.tasks.create!(name: "Walk the dog")
+#list = List.create!(name: "In Progress")
+#list = List.create!(name: "Done")

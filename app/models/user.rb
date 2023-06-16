@@ -20,4 +20,13 @@ class User < ApplicationRecord
   after_update if: :password_digest_previously_changed? do
     sessions.where.not(id: Current.session).delete_all
   end
+
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[first_name last_name email]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[first_name last_name email]
+  end
 end
