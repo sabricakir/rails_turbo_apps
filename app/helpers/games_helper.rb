@@ -8,6 +8,7 @@ module GamesHelper
     text = find_by_regex(regex, text, text_class)
     text
   end
+
   def find_by_regex(regex, text, text_class = "text-blue-300")
     results = text.scan(regex)
     results.each do |result|
