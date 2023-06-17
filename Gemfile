@@ -89,3 +89,5 @@ gem "ranked-model", "~> 0.4.8"
 gem "requestjs-rails", "~> 0.0.10"
 
 gem "ransack", "~> 4.0"
+
+gem "pagy", "~> 6.0"

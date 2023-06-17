@@ -1,17 +1,16 @@
 <h1 class="text-3xl font-bold mb-4"> Users </h1>
 
-<%= search_form_for @q, data: { turbo_frame: :users } do |f| %>
-  <%= f.label :first_name_or_last_name_or_email_cont %>
+<%= search_form_for @q, data: { turbo_frame: :results } do |f| %>
+  <%= f.label 'Search for Users:' %>
   <%= f.search_field :first_name_or_last_name_or_email_cont,
                      oninput: 'this.form.requestSubmit()',
                      autofocus: true,
                      autocomplete: 'off' %>
 <% end %>
 
-<%= turbo_frame_tag :users do %>
-  <div id="users">
-    <% @users.each do |user| %>
-      <%= render user %>
-    <% end %>
+<%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
+  <div id="users"></div>
+  <div id="pagination">
+    <%= turbo_frame_tag :pagination, loading: :lazy, src: users_path(format: :turbo_stream, q: params[:q]&.to_unsafe_h) %>
   </div>
 <% end %>

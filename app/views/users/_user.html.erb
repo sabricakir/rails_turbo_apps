@@ -5,14 +5,14 @@
   </div>
   <div class="my-1">
     <strong> Email: </strong>
-    <%= user.email %>
+    <%= highlight(user.email, params.dig(:q, :first_name_or_last_name_or_email_cont)) %>
   </div>
   <div class="my-1">
     <strong> First Name: </strong>
-    <%= user.first_name %>
+    <%= highlight(user.first_name, params.dig(:q, :first_name_or_last_name_or_email_cont)) %>
   </div>
   <div class="my-1">
     <strong> Last Name: </strong>
-    <%= user.last_name %>
+    <%= highlight(user.last_name, params.dig(:q, :first_name_or_last_name_or_email_cont)) %>
   </div>
 </div>
