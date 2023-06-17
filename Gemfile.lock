@@ -139,6 +139,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
+    pagy (6.0.4)
     pg (1.5.3)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -177,6 +178,10 @@ GEM
     rake (13.0.6)
     ranked-model (0.4.8)
       activerecord (>= 4.2)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.1)
     regexp_parser (2.8.0)
     reline (0.3.4)
@@ -241,10 +246,12 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kredis
+  pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   ranked-model (~> 0.4.8)
+  ransack (~> 4.0)
   redis (~> 4.0)
   requestjs-rails (~> 0.0.10)
   selenium-webdriver
