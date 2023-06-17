@@ -21,3 +21,5 @@ Here is the list of applications: <br/>
 * Advanced Drag and Drop Sortable Lists with Hotwire
 
 * Hotwire: Search and Infinite Pagination (Ransack with Pagy)
+
+* Convert hashtags and mentions into links
