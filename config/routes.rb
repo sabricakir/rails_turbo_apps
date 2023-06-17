@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   match '/500', via: :all, to: 'errors#internal_server_error'
   match '/404', via: :all, to: 'errors#not_found'
-  match "*path", via: :all, to: "errors#does_not_exist"
+  match '*path', via: :all, to: "errors#does_not_exist"
 
   get 'errors/not_found'
   get 'home', to: 'home#index'
