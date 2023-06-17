@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains a bunch of rails applications with hotwire and stimulus. <br/>
+These applications are inspired by the [SupeRails](https://www.youtube.com/@SupeRails) By Yaroslav Shmarov <br/>
+Here is the list of applications: <br/>
 
-Things you may want to cover:
+* Turbo Broadcasts CRUD
 
-* Ruby version
+* Add events to calendar (iCalendar and .ics format) 
 
-* System dependencies
+* Email Calendar Invite
 
-* Configuration
+* Inline editing attributes with Hotwire
 
-* Database creation
+* Rails 7 Select Box with Search using Slim-Select
 
-* Database initialization
+* Realtime Online User Tracking with Actioncable, Kredis, Turbo Broadcasts
 
-* How to run the test suite
+* Recently viewed products with Kredis
 
-* Services (job queues, cache servers, search engines, etc.)
+* Advanced Drag and Drop Sortable Lists with Hotwire
 
-* Deployment instructions
-
-* ...
+* Hotwire: Search and Infinite Pagination (Ransack with Pagy)
