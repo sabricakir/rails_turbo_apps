@@ -23,3 +23,5 @@ Here is the list of applications: <br/>
 * Hotwire: Search and Infinite Pagination (Ransack with Pagy)
 
 * Convert hashtags and mentions into links
+
+* Custom error pages (404 Not found and 500 Internal server error)
