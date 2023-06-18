@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
+  resources :rooms
   resources :products, only: [:index, :show]
   resources :lists do
     member do
