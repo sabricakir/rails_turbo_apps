@@ -1,10 +1,11 @@
 # app/channels/application_cable/connection.rb
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-    identified_by :current_user
+    identified_by :current_user, :session_user
 
     def connect
       self.current_user = find_verified_user
+      self.session_user = find_session_user
     end
 
     private
@@ -14,6 +15,10 @@ module ApplicationCable
       else
         reject_unauthorized_connection
       end
+    end
+
+    def find_session_user
+      request.session.id
     end
   end
 end
