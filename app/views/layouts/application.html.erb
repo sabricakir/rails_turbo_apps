@@ -13,16 +13,21 @@
   </head>
 
   <body>
-    <% Current.user&.recently_viewed_products.elements.each do |product| %>
-        <div class="text-blue-500 font-bold"><%= Product.find(product).name %></div>
+    <div>Visitors: <span id="visitors_count"> </span> </div>
+    <% if Current.user.present? %>
+      <% Current.user&.recently_viewed_products.elements.each do |product| %>
+          <div class="text-blue-500 font-bold"><%= Product.find(product).name %></div>
+      <% end %>
     <% end %>
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
+    <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
     <%= link_to 'Home', home_path %>
     <%= link_to 'Dashboard', dashboard_path %>
     <%= link_to 'Users', users_path %>
     <%= link_to 'Products', products_path %>
     <%= link_to 'Lists', lists_path %>
     <%= link_to 'Games', games_path %>
+    <%= link_to 'Rooms', rooms_path %>
     <main class="container mx-auto mt-28 px-5">
       <%= yield %>
     </main>
