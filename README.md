@@ -25,3 +25,5 @@ Here is the list of applications: <br/>
 * Convert hashtags and mentions into links
 
 * Custom error pages (404 / 500 / all routes that are not found)
+
+* Live visitor count. ActionCable, Turbo Broadcasts, Kredis
