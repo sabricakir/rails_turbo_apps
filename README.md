@@ -27,3 +27,5 @@ Here is the list of applications: <br/>
 * Custom error pages (404 / 500 / all routes that are not found)
 
 * Live visitor count. ActionCable, Turbo Broadcasts, Kredis
+
+* Add dark mode using tailwind, stimulus
