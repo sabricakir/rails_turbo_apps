@@ -1,0 +1,10 @@
+<div id="<%= dom_id room %>">
+  <div class="my-4">
+    <h1 class="text-xl font-bold"> Room <%= room.id %></h1>
+  </div>
+  <% if action_name != "show" %>
+    <%= link_to "Show this room", room, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this room', edit_room_path(room), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
