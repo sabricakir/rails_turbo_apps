@@ -28,4 +28,6 @@ Here is the list of applications: <br/>
 
 * Live visitor count. ActionCable, Turbo Broadcasts, Kredis
 
-* Add dark mode using tailwind, stimulus
+* Dark mode using tailwind, stimulus
+
+* Date range picker
