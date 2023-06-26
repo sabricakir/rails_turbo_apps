@@ -47,3 +47,4 @@ ngrok
 # Other
 .rbenv-vars
 /config/credentials/development.key
+rails
