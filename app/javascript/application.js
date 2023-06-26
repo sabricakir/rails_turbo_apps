@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "@rails/request.js"
+import moment from "moment"
+window.moment = moment

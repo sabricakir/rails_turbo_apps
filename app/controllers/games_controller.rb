@@ -4,11 +4,16 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
     games = Game.all.order(created_at: :desc)
-    @games = if params[:search].present?
-               games.where("description ILIKE ?", "%#{params[:search]}%")
-             else
-               games
-             end
+    if params[:date_between].present?
+      starts, ends = params[:date_between].split(" - ")
+      start_date = Date.strptime(starts, "%m/%d/%Y")
+      end_date = Date.strptime(ends, "%m/%d/%Y")
+      @games = games.where("starts_at >= ? AND ends_at <= ?", start_date, end_date)
+    elsif params[:search].present?
+      @games = games.where("description ILIKE ?", "%#{params[:search]}%")
+    else
+      @games = games
+    end
   end
 
   # GET /games/1 or /games/1.json

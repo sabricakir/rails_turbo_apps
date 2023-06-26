@@ -1,3 +1,18 @@
+<script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
+
+<%= form_with url: games_path, method: :get do |form| %>
+  <div class="flex gap-x-4">
+    <div class="flex items-center">
+      <%= form.label :date_between, "Set Date Between" %>
+      <%= form.text_field :date_between,
+                          class: "rounded-lg py-3 px-5 bg-gray-100 ml-3",
+                          data: {controller: 'daterangepicker'},
+                          value: params[:date_between] %>
+    </div>
+    <%= form.submit "Search", class: "rounded-lg py-3 px-5 bg-cyan-600 text-white block font-medium" %>
+  </div>
+<% end %>
+
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
