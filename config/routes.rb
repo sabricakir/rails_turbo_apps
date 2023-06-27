@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :movies
   match '/500', via: :all, to: 'errors#internal_server_error'
   match '/404', via: :all, to: 'errors#not_found'
 
@@ -25,6 +24,11 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :rooms
+  resources :movies do
+    collection do
+      post :search
+    end
+  end
   resources :products, only: [:index, :show]
   resources :lists do
     member do

@@ -1,0 +1,5 @@
+<p class="font-bold"> Search Results Count: <span> <%= movies.count %> </span> </p>
+<% movies.each do |movie| %>
+  <%= link_to highlight(movie.title, params[:title]), movie, class: 'py-2 text-blue-500 underline hover:text-blue-800 hover:cursor-pointer' %>
+  <br>
+<% end %>
