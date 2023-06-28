@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/new
   def new
-    @address = Address.new
+    @address = Address.new(address_params)
   end
 
   # GET /addresses/1/edit
@@ -65,6 +65,6 @@ class AddressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_params
-      params.require(:address).permit(:country, :state, :city, :details)
+      params.fetch(:address, {}).permit(:country, :state, :city, :details)
     end
 end
