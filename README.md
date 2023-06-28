@@ -20,5 +20,6 @@ Here is the list of applications: <br/> <br/>
 | Live visitor count. ActionCable, Turbo Broadcasts, Kredis                | [Add Live Visitor Count](https://github.com/sabricakir/rails_turbo_apps/commit/cb7bce3d9309c164525c9323dee4b63dcc43feaa) |
 | Dark mode using tailwind, stimulus                                       | [Add Dark Mode](https://github.com/sabricakir/rails_turbo_apps/commit/3d1fa13e030e4b8d0de5d990ccc26bbadb10e285) |
 | Date range picker                                                        | [Add Date Range Picker](https://github.com/sabricakir/rails_turbo_apps/commit/2ffb8a2d23d18858fe0ec7a73b93f8c8798ae713) |
+| Autocomplete Search                                                      | [Add Autocomplete Search](https://github.com/sabricakir/rails_turbo_apps/pull/17/commits/ed25727bed5d220f827b7d2dc9d7a5581385a66c) |
 
 
