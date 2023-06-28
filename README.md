@@ -18,6 +18,7 @@ Here is the list of applications: <br/> <br/>
 | Recently Viewed Products With Kredis                                  | [Add Recently Viewed Products](https://github.com/sabricakir/rails_turbo_apps/commit/cd88b81a9f7594857b0ec6886fac498a1037f0f2) |
 | Inline Editing Attributes with Hotwire                                | [Add Inline Editing](https://github.com/sabricakir/rails_turbo_apps/commit/002d0bf2e1ef7234db4eac197085ebf469a15f51) |
 | Autocomplete Search with Hotwire                                      | [Add Autocomplete Search](https://github.com/sabricakir/rails_turbo_apps/pull/17/commits/ed25727bed5d220f827b7d2dc9d7a5581385a66c) |
+| Hovercards with Turbo Frames                                          | [Add Hovercards](https://github.com/sabricakir/rails_turbo_apps/pull/23/commits/b365b1129aac0501a0c8ff1b06a4a38532954993) |
 | Turbo Broadcast CRUD                                                  | [Add Turbo Broadcasts](https://github.com/sabricakir/rails_turbo_apps/commit/28a4359e8d756599a589dd0aff6fdf6b9b44fe9e)      |
 | Chained Select Fields                                                 | [Add Chained Select Fields](https://github.com/sabricakir/rails_turbo_apps/pull/21/commits/252ea31815bedec9510a0c45bd6ea64e97a0b6ab) |
 | Email Calendar Invite                                                 | [Add Email Calendar Invite](https://github.com/sabricakir/rails_turbo_apps/commit/1425160be67c2afac00977772aa1e6530b1fa7ec) |
