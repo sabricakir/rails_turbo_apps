@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
   root "lists#index"
+  resources :addresses
   resources :games do
     member do
       get 'invite', to: 'games#invite'
