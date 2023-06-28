@@ -52,5 +52,9 @@ texts = [
 ]
 
 texts.each do |text|
-  Game.create(title: Faker::Sport.sport, description: text, address: Faker::Address.full_address, starts_at: Time.now, ends_at: Time.now + 2*60*60)
+  #Game.create(title: Faker::Sport.sport, description: text, address: Faker::Address.full_address, starts_at: Time.now, ends_at: Time.now + 2*60*60)
+end
+
+100.times do |index|
+  Movie.create title: Faker::Movie.title
 end
