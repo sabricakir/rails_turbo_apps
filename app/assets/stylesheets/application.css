@@ -14,3 +14,20 @@
  *= require_self
  */
 @import url("https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css");
+
+.hover-wrapper .hover-content {
+    display: none;
+    position: relative;
+    top: -5px;
+    left: -5px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    color: #000000;
+    width: 50%;
+}
+
+.hover-wrapper:hover .hover-content {
+    display: block;
+
+}
