@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :country %>
-    <%= form.text_field :country, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :country, class: 'block' %>
+    <%= form.select :country, address.countries.invert, { include_blank: true }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
   </div>
 
   <div class="my-5">
-    <%= form.label :state %>
-    <%= form.text_field :state, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :state, class: 'block' %>
+    <%= form.select :state, address.states.invert, { include_blank: true }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
   </div>
 
   <div class="my-5">
-    <%= form.label :city %>
-    <%= form.text_field :city, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :city, class: 'block' %>
+    <%= form.select :city, address.cities, { include_blank: true }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
   </div>
 
   <div class="my-5">
-    <%= form.label :details %>
+    <%= form.label :details, class: 'block' %>
     <%= form.text_field :details, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
