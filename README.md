@@ -4,12 +4,6 @@ This repository contains a bunch of rails applications with hotwire and stimulus
 These applications are inspired by the [SupeRails](https://www.youtube.com/@SupeRails) By Yaroslav Shmarov <br/>
 Here is the list of applications: <br/> <br/>
 
-<style>
-.table-row-red {
-  background-color: #FFD3D3;
-}
-</style>
-
 | Project                                                                  | Commit                                                                                                                      |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Realtime Online User Tracking with Actioncable, Kredis, Turbo Broadcasts | [Add Online User Tracking](https://github.com/sabricakir/rails_turbo_apps/commit/cc9db407c42a890515155fe70f1cb5d7da9b2a64) |
