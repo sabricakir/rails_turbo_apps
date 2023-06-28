@@ -6,7 +6,7 @@ class Address < ApplicationRecord
   validates :city, presence: { if: -> (address) { address.cities.present? }}
   validates :details, presence: true
   def countries
-    CS.countries
+    CS.countries.with_indifferent_access
   end
 
   def states
@@ -15,5 +15,13 @@ class Address < ApplicationRecord
 
   def cities
     CS.cities(state, country) || []
+  end
+
+  def country_name
+    countries[country]
+  end
+
+  def state_name
+    states[state]
   end
 end
