@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
-  resources :rooms
+  resources :rooms do
+    member do
+      get :hovercard
+    end
+  end
   resources :movies do
     collection do
       post :search

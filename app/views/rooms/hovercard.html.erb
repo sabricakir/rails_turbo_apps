@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(@room, :thumbnail) do %>
+  <p class="text-green-500 text-lg font-semibold">Room Content 1 for Room <%= @room.id %></p>
+  <p class="text-blue-500 text-lg font-semibold">Room Content 2 for Room <%= @room.id %></p>
+  <p class="text-red-500 text-lg font-semibold">Room Content 3 for Room <%= @room.id %></p>
+  <%= link_to "Show this room", @room, class: "rounded-lg py-3 px-5 inline-block font-medium" %>
+<% end %>
