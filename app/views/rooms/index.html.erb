@@ -1,14 +1,26 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<%= render PageComponent.new(title: 'Rooms',
+                             subtitle: 'It is a room subtitle',
+                             icon: 'door',
+                             full_width: true) do |component| %>
+  <% component.with_header do %>
+    <span class="text-rose-300">
+      Header Title
+    </span>
+    <h1 class="text-2xl font-bold ml-4"> <%= Room.all.count %> </h1>
   <% end %>
+  <div class="w-full">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Rooms</h1>
-    <%= link_to 'New room', new_room_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Rooms</h1>
+      <%= link_to 'New room', new_room_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
 
-  <div id="rooms" class="min-w-full">
-    <%= render @rooms %>
+    <div id="rooms" class="min-w-full">
+      <%= render @rooms %>
+    </div>
   </div>
-</div>
+<% end %>
+
