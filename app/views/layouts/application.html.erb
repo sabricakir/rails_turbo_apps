@@ -34,22 +34,19 @@
       </svg>
     </div>
     <div>Visitors: <span id="visitors_count"> </span> </div>
-    <% if Current.user.present? %>
-      <% Current.user&.recently_viewed_products.elements.each do |product| %>
-          <div class="text-blue-500 font-bold"><%= Product.find(product).name %></div>
-      <% end %>
-    <% end %>
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
-    <%= link_to 'Home', home_path %>
-    <%= link_to 'Dashboard', dashboard_path %>
-    <%= link_to 'Addresses', addresses_path %>
-    <%= link_to 'Users', users_path %>
-    <%= link_to 'Products', products_path %>
-    <%= link_to 'Movies', movies_path %>
-    <%= link_to 'Lists', lists_path %>
-    <%= link_to 'Games', games_path %>
-    <%= link_to 'Rooms', rooms_path %>
+    <%= active_link_to 'Home', home_path, class: 'text-blue-500 hover:text-blue-700'%>
+    <%= active_link_to dashboard_path, {}, class: 'text-blue-500 hover:text-blue-700' do %>
+      Dashboard
+    <% end %>
+    <%= active_link_to 'Addresses', addresses_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Users', users_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Products', products_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Movies', movies_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Lists', lists_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Games', games_path, class: 'text-blue-500 hover:text-blue-700' %>
+    <%= active_link_to 'Rooms', rooms_path, class: 'text-blue-500 hover:text-blue-700' %>
     <main class="container mx-auto mt-28 px-5">
       <%= yield %>
     </main>
