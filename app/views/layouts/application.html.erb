@@ -12,43 +12,79 @@
     <%= javascript_importmap_tags %>
   </head>
 
+
   <body data-controller="theme" class="bg-white dark:bg-slate-500 text-black dark:text-white">
-    <div class="hover:cursor-pointer fixed top-0 right-0" data-theme-target="sunIcon" data-action="click->theme#themeSwitch">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-filled" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" stroke-width="0" fill="currentColor" />
-        <path d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" stroke-width="0" fill="currentColor" />
-        <path d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" stroke-width="0" fill="currentColor" />
-        <path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" stroke-width="0" fill="currentColor" />
-        <path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" stroke-width="0" fill="currentColor" />
-        <path d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z" stroke-width="0" fill="currentColor" />
-        <path d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" stroke-width="0" fill="currentColor" />
-        <path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" stroke-width="0" fill="currentColor" />
-        <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" stroke-width="0" fill="currentColor" />
-      </svg>
-    </div>
-    <div class="hover:cursor-pointer fixed top-0 right-0" data-theme-target="moonIcon" data-action="click->theme#themeSwitch">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-filled" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z" stroke-width="0" fill="currentColor" />
-      </svg>
-    </div>
-    <div>Visitors: <span id="visitors_count"> </span> </div>
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
-    <%= active_link_to 'Home', home_path, class: 'text-blue-500 hover:text-blue-700'%>
-    <%= active_link_to dashboard_path, {}, class: 'text-blue-500 hover:text-blue-700' do %>
-      Dashboard
-    <% end %>
-    <%= active_link_to 'Addresses', addresses_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Users', users_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Products', products_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Movies', movies_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Lists', lists_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Games', games_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <%= active_link_to 'Rooms', rooms_path, class: 'text-blue-500 hover:text-blue-700' %>
-    <main class="container mx-auto mt-28 px-5">
-      <%= yield %>
-    </main>
+
+    <div class="sticky top-0 z-10" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithEsc">
+      <nav class="bg-slate-400 p-4 flex justify-between items-center h-20">
+        <div class="text-lg italic">
+          Logo
+        </div>
+        <div class="flex space-x-2">
+          <div class="">
+            <%= Current.user.email %>
+          </div>
+          <div class="md:hidden" role="button" data-action="click->navbar#toggle">
+            &#9776;
+          </div>
+        </div>
+      </nav>
+
+      <nav class="hidden p-4 flex flex-col justify-center items-center bg-slate-200 absolute w-full h-80 overflow-y-auto" data-navbar-target="content">
+        <div class="flex flex-col space-y-2">
+          <div> <%= active_link_to 'Home', home_path, class: 'text-sky-500 hover:text-sky-700'%> </div> 
+          <div> 
+            <%= active_link_to dashboard_path, {}, class: 'text-sky-500 hover:text-sky-700' do %>
+              Dashboard
+            <% end %>
+          </div>
+          <div> <%= active_link_to 'Addresses', addresses_path, class: 'text-sky-500 hover:text-sky-700' %></div> 
+          <div> <%= active_link_to 'Users', users_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Products', products_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Movies', movies_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Lists', lists_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Games', games_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Rooms', rooms_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+        </div>
+      </nav>
+    </div>
+
+    <div class="bg-slate-300 flex">
+      <nav class="bg-slate-200 p-4 w-1/6 hidden md:flex flex-col justify-between sticky top-20 h-[calc(100vh-80px)]">
+        <div class="flex flex-col space-y-2">
+          <div> <%= active_link_to 'Home', home_path, class: 'text-sky-500 hover:text-sky-700'%> </div> 
+          <div> 
+            <%= active_link_to dashboard_path, {}, class: 'text-sky-500 hover:text-sky-700' do %>
+              Dashboard
+            <% end %>
+          </div>
+          <div> <%= active_link_to 'Addresses', addresses_path, class: 'text-sky-500 hover:text-sky-700' %></div> 
+          <div> <%= active_link_to 'Users', users_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Products', products_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Movies', movies_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Lists', lists_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Games', games_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+          <div> <%= active_link_to 'Rooms', rooms_path, class: 'text-sky-500 hover:text-sky-700' %> </div> 
+        </div>
+        <div class="flex justify-between items-center"> 
+          <div>Visitors: <span id="visitors_count"> </span> </div>
+          <div class="hover:cursor-pointer" data-theme-target="sunIcon" data-action="click->theme#themeSwitch">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+            </svg>
+          </div>
+          <div class="hover:cursor-pointer" data-theme-target="moonIcon" data-action="click->theme#themeSwitch">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </nav>
+      <main class="bg-slate-300 w-5/6 p-4 flex-grow">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
