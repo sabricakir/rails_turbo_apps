@@ -1,5 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
+<div data-controller="dialog" data-action="click->dialog#clickOutsideDialog">
+  <button data-action="click->dialog#openDialog" class="bg-slate-100 px-4 py-2 text-center rounded-lg mb-4">Open Modal</button>
+  <dialog data-dialog-target="dialog" class="w-full md:w-1/2 shadow-lg rounded-lg">
+    <div class="p-8">
+      <p>Greetings, one and all!</p>
+      <form>
+        <button>Cancel</button>
+        <button>Submit</button>
+      </form>
+      <div class="bg-rose-400 p-4 flex flex-col justify-evenly items-start rounded-lg">
+        <% (1..10).each do |i| %>
+          <p><%= i %></p>
+        <% end %>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+
 <p>Signed as <%= Current.user.email %></p>
 
 <h2>Login and verification</h2>

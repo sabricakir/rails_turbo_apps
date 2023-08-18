@@ -26,3 +26,4 @@ Here is the list of applications: <br/> <br/>
 | Email Calendar Invite                                                    | [Add Email Calendar Invite](https://github.com/sabricakir/rails_turbo_apps/commit/1425160be67c2afac00977772aa1e6530b1fa7ec)                  |
 | Date Range Picker                                                        | [Add Date Range Picker](https://github.com/sabricakir/rails_turbo_apps/commit/2ffb8a2d23d18858fe0ec7a73b93f8c8798ae713)                      |
 | View Components                                                          | [Add View Components](https://github.com/sabricakir/rails_turbo_apps/pull/25/commits/b195f8a001f3f7eaad5344646cb3472ccd01f3c3)               |
+| Modal                                                                    | [Add Modal](https://github.com/sabricakir/rails_turbo_apps/pull/27/commits/88845222b8451e439a69a29e468e520d2a28faec)                         |
