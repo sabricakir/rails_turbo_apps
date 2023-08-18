@@ -19,6 +19,7 @@ Here is the list of applications: <br/> <br/>
 | Recently Viewed Products With Kredis                                     | [Add Recently Viewed Products](https://github.com/sabricakir/rails_turbo_apps/commit/cd88b81a9f7594857b0ec6886fac498a1037f0f2)               |
 | Inline Editing Attributes with Hotwire                                   | [Add Inline Editing](https://github.com/sabricakir/rails_turbo_apps/commit/002d0bf2e1ef7234db4eac197085ebf469a15f51)                         |
 | Autocomplete Search with Hotwire                                         | [Add Autocomplete Search](https://github.com/sabricakir/rails_turbo_apps/pull/17/commits/ed25727bed5d220f827b7d2dc9d7a5581385a66c)           |
+| Modal with Tailwind and Stimulus                                         | [Add Modal](https://github.com/sabricakir/rails_turbo_apps/pull/27/commits/88845222b8451e439a69a29e468e520d2a28faec)                         |
 | Hovercards with Turbo Frames                                             | [Add Hovercards](https://github.com/sabricakir/rails_turbo_apps/pull/23/commits/b365b1129aac0501a0c8ff1b06a4a38532954993)                    |
 | Highlight Link to Current Page                                           | [Add Highlight Link Current Page](https://github.com/sabricakir/rails_turbo_apps/pull/24/commits/9a3a7e5a7c6f3161fb509c9a82f25bc5f1addfc8)   |
 | Turbo Broadcast CRUD                                                     | [Add Turbo Broadcasts](https://github.com/sabricakir/rails_turbo_apps/commit/28a4359e8d756599a589dd0aff6fdf6b9b44fe9e)                       |
@@ -26,4 +27,3 @@ Here is the list of applications: <br/> <br/>
 | Email Calendar Invite                                                    | [Add Email Calendar Invite](https://github.com/sabricakir/rails_turbo_apps/commit/1425160be67c2afac00977772aa1e6530b1fa7ec)                  |
 | Date Range Picker                                                        | [Add Date Range Picker](https://github.com/sabricakir/rails_turbo_apps/commit/2ffb8a2d23d18858fe0ec7a73b93f8c8798ae713)                      |
 | View Components                                                          | [Add View Components](https://github.com/sabricakir/rails_turbo_apps/pull/25/commits/b195f8a001f3f7eaad5344646cb3472ccd01f3c3)               |
-| Modal                                                                    | [Add Modal](https://github.com/sabricakir/rails_turbo_apps/pull/27/commits/88845222b8451e439a69a29e468e520d2a28faec)                         |
