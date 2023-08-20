@@ -8,6 +8,11 @@
                      autocomplete: 'off' %>
 <% end %>
 
+<%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_actions_form do |form| %>
+  <%= form.submit 'active', class: 'bg-slate-200 rounded-full px-4 py-2 mt-2 hover:bg-slate-300 cursor-pointer' %>
+  <%= form.submit 'inactive', class: 'bg-slate-200 rounded-full px-4 py-2 mt-2 hover:bg-slate-300 cursor-pointer' %>
+<% end %>
+
 <%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
   <div id="users"></div>
   <div id="pagination">

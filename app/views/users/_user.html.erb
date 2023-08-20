@@ -1,4 +1,5 @@
 <div id="<%= dom_id(user) %>" class="my-4 p-4 border-2 border-gray-200 rounded-lg">
+  <%= check_box_tag 'user_ids[]', user.id, nil, { multiple: true, form: :bulk_actions_form }%>
   <div class="my-1">
     <strong> Id: </strong>
     <%= user.id %>
@@ -14,5 +15,9 @@
   <div class="my-1">
     <strong> Last Name: </strong>
     <%= highlight(user.last_name, params.dig(:q, :first_name_or_last_name_or_email_cont)) %>
+  </div>
+    <div class="my-1">
+    <strong> Status: </strong>
+    <%= highlight(user.status, params.dig(:q, :first_name_or_last_name_or_email_cont)) %>
   </div>
 </div>

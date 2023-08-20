@@ -46,7 +46,11 @@ Rails.application.routes.draw do
       put :sort
     end
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    collection do
+      patch :bulk_update
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
