@@ -8,9 +8,18 @@
                      autocomplete: 'off' %>
 <% end %>
 
-<%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
-  <div id="users"></div>
-  <div id="pagination">
-    <%= turbo_frame_tag :pagination, loading: :lazy, src: users_path(format: :turbo_stream, q: params[:q]&.to_unsafe_h) %>
-  </div>
-<% end %>
+<div data-controller="checkbox-select-all">
+  <%= label_tag 'select all' %>
+  <%= check_box_tag 'select all', nil, nil, { data: { checkbox_select_all_target: 'parent', action: 'change->checkbox-select-all#toggleChildren' } } %>
+  <%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_actions_form do |form| %>
+    <%= form.submit 'active', class: 'bg-slate-200 rounded-full px-4 py-2 mt-2 hover:bg-slate-300 cursor-pointer' %>
+    <%= form.submit 'inactive', class: 'bg-slate-200 rounded-full px-4 py-2 mt-2 hover:bg-slate-300 cursor-pointer' %>
+  <% end %>
+
+  <%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
+    <div id="users"></div>
+    <div id="pagination">
+      <%= turbo_frame_tag :pagination, loading: :lazy, src: users_path(format: :turbo_stream, q: params[:q]&.to_unsafe_h) %>
+    </div>
+  <% end %>
+</div>

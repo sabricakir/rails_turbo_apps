@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  enum status: { active: 'active', inactive: 'inactive' }
+
   kredis_unique_list :recently_viewed_products, limit: 5
 
   has_many :email_verification_tokens, dependent: :destroy
@@ -21,12 +23,11 @@ class User < ApplicationRecord
     sessions.where.not(id: Current.session).delete_all
   end
 
-
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     %w[first_name last_name email]
   end
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     %w[first_name last_name email]
   end
 end
