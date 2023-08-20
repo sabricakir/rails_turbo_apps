@@ -86,5 +86,7 @@
         <%= yield %>
       </main>
     </div>
+
+    <%= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil? %>
   </body>
 </html>
