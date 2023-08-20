@@ -16,6 +16,21 @@
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div data-controller="showhide" data-showhide-show-if-value="passcode_protected">
+    <div class="my-5">
+      <%= form.label :access, class: "block" %>
+      <%= form.select :access, 
+                      Movie.accesses, 
+                      { include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" }, 
+                      { data: { showhide_target: 'input', action: 'change->showhide#toggle' } } %>
+    </div>
+
+    <div class="my-5" data-showhide-target="output">
+      <%= form.label :passcode %>
+      <%= form.text_field :passcode, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
