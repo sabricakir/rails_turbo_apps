@@ -28,3 +28,5 @@ Here is the list of applications: <br/> <br/>
 | Date Range Picker                                                        | [Add Date Range Picker](https://github.com/sabricakir/rails_turbo_apps/commit/2ffb8a2d23d18858fe0ec7a73b93f8c8798ae713)                      |
 | View Components                                                          | [Add View Components](https://github.com/sabricakir/rails_turbo_apps/pull/25/commits/b195f8a001f3f7eaad5344646cb3472ccd01f3c3)               |
 | Cookie Consent                                                           | [Add Cookie Consent](https://github.com/sabricakir/rails_turbo_apps/pull/28/commits/6b22e278a9e00f0e1ffb17ef3d129932286a55f9)                |
+| Multiple Select                                                          | [Add Multiple Select](https://github.com/sabricakir/rails_turbo_apps/pull/29/commits/7343e83194928fbcf1c8e89f2fe59b43e791b475)               |
+| Select All                                                               | [Add Select All](https://github.com/sabricakir/rails_turbo_apps/pull/29/commits/c6903ff0ee4399d225a221c8b8299c579daa12e8)                    |
