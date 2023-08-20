@@ -5,18 +5,19 @@ Rails.application.routes.draw do
   get 'errors/not_found'
   get 'home', to: 'home#index'
   get 'dashboard', to: 'static_pages#dashboard'
-  get  "sign_in", to: "sessions#new"
-  post "sign_in", to: "sessions#create"
-  get  "sign_up", to: "registrations#new"
-  post "sign_up", to: "registrations#create"
-  resources :sessions, only: [:index, :show, :destroy]
-  resource  :password, only: [:edit, :update]
+  get  'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
+  get  'sign_up', to: 'registrations#new'
+  post 'sign_up', to: 'registrations#create'
+  get 'cookies', to: 'cookies#index'
+  resources :sessions, only: %i[index show destroy]
+  resource  :password, only: %i[edit update]
   namespace :identity do
-    resource :email,              only: [:edit, :update]
-    resource :email_verification, only: [:show, :create]
-    resource :password_reset,     only: [:new, :edit, :create, :update]
+    resource :email,              only: %i[edit update]
+    resource :email_verification, only: %i[show create]
+    resource :password_reset,     only: %i[new edit create update]
   end
-  root "lists#index"
+  root 'lists#index'
   resources :addresses
   resources :games do
     member do
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
       post :search
     end
   end
-  resources :products, only: [:index, :show]
+  resources :products, only: %i[index show]
   resources :lists do
     member do
       put :sort
@@ -50,5 +51,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  match '*path', via: :all, to: "errors#does_not_exist"
+  match '*path', via: :all, to: 'errors#does_not_exist'
 end
