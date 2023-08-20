@@ -24,7 +24,7 @@
         </div>
         <div class="flex space-x-2">
           <div class="">
-            <%= Current.user.email %>
+            <%= Current.user.email if Current.user.present? %>
           </div>
           <div class="md:hidden" role="button" data-action="click->navbar#toggle">
             &#9776;
