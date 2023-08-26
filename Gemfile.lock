@@ -96,6 +96,7 @@ GEM
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     foreman (0.87.2)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   debug
   faker (~> 3.2)
   foreman (~> 0.87.2)
+  geocoder (~> 1.8)
   icalendar (~> 2.8)
   importmap-rails
   jbuilder
