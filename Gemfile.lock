@@ -124,6 +124,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapkick-rb (0.1.5)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kredis
+  mapkick-rb (~> 0.1.5)
   pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
