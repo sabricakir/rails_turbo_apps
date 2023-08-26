@@ -1,0 +1,7 @@
+<% if new_notifications_count.positive? %>
+  <%= favicon_link_tag asset_path('notification-bell.png') %>
+  <title id="title-notifications" data-controller="title-blink" data-title-blink-new-title-value="(<%= new_notifications_count %>) Alerts">TurboBroadcastApp</title>
+<% else %>
+  <%= favicon_link_tag asset_path('notification.png') %>
+  <title id="title-notifications">TurboBroadcastApp</title>
+<% end %>
