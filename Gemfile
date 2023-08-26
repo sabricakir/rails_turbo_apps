@@ -15,6 +15,11 @@ gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.6'
 
+gem 'nokogiri', '~> 1.15', '>= 1.15.4'
+
+gem 'actionpack', '>= 7.0.5.1'
+
+gem 'activesupport', '>= 7.0.7.1'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
@@ -34,7 +39,7 @@ gem 'jbuilder'
 gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-gem "kredis"
+gem 'kredis'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -55,8 +60,8 @@ gem 'foreman', '~> 0.87.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'byebug'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -80,22 +85,22 @@ end
 gem 'faker', '~> 3.2'
 gem 'icalendar', '~> 2.8'
 
-gem "authentication-zero", "~> 2.16"
+gem 'authentication-zero', '~> 2.16'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt", "~> 3.1.7"
+gem 'bcrypt', '~> 3.1.7'
 
-gem "ranked-model", "~> 0.4.8"
+gem 'ranked-model', '~> 0.4.8'
 
-gem "requestjs-rails", "~> 0.0.10"
+gem 'requestjs-rails', '~> 0.0.10'
 
-gem "ransack", "~> 4.0"
+gem 'ransack', '~> 4.0'
 
-gem "pagy", "~> 6.0"
+gem 'pagy', '~> 6.0'
 
-gem "city-state", "~> 0.1.0"
+gem 'city-state', '~> 0.1.0'
 
-gem "view_component", "~> 3.4"
+gem 'view_component', '~> 3.4'
 
-gem "geocoder", "~> 1.8"
+gem 'geocoder', '~> 1.8'
 
-gem "mapkick-rb", "~> 0.1.5"
+gem 'mapkick-rb', '~> 0.1.5'
