@@ -95,3 +95,7 @@ gem "pagy", "~> 6.0"
 gem "city-state", "~> 0.1.0"
 
 gem "view_component", "~> 3.4"
+
+gem "geocoder", "~> 1.8"
+
+gem "mapkick-rb", "~> 0.1.5"

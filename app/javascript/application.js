@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "@rails/request.js"
+import "mapkick/bundle"
 import moment from "moment"
 window.moment = moment

@@ -1,0 +1,28 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Locations</h1>
+    <%= link_to 'New location', new_location_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <%= js_map locations_path(format: :json, place: params[:place], distance: params[:distance]),
+             width: "1000px", height: "500px",
+             markers: {color: "#4FC1E8"},
+             zoom: 15,
+             controls: true,
+             style: "mapbox://styles/mapbox/outdoors-v12",
+             tooltips: { hover: false, html: true } %>
+
+  <%= form_with url: locations_path, method: :get do |form| %>
+    <%= form.text_field :place, value: params[:place] %>
+    <%= form.select :distance, [10, 100, 1000, 10000], selected: params[:distance] %>
+    <%= form.submit %>
+  <% end%>
+
+  <div id="locations" class="min-w-full">
+    <%= render @locations %>
+  </div>
+</div>

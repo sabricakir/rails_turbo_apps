@@ -96,6 +96,7 @@ GEM
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     foreman (0.87.2)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -123,6 +124,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapkick-rb (0.1.5)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -249,10 +251,12 @@ DEPENDENCIES
   debug
   faker (~> 3.2)
   foreman (~> 0.87.2)
+  geocoder (~> 1.8)
   icalendar (~> 2.8)
   importmap-rails
   jbuilder
   kredis
+  mapkick-rb (~> 0.1.5)
   pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
