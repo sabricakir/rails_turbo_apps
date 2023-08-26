@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TurboBroadcastApp</title>
+    <% new_notifications_count = Notification.where(seen: [false, nil]).count %>
+    <%= render 'shared/title_notifications', { new_notifications_count: } %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,6 +17,7 @@
   <body data-controller="theme" class="bg-white dark:bg-slate-500 text-black dark:text-white">
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
+    <%= turbo_stream_from :global_notification %>
 
     <div class="sticky top-0 z-10" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithEsc">
       <nav class="bg-slate-400 p-4 flex justify-between items-center h-20">
@@ -86,7 +88,6 @@
         <%= yield %>
       </main>
     </div>
-
     <%= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil? %>
   </body>
 </html>
