@@ -8,6 +8,12 @@
     <%= link_to 'New location', new_location_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <%= form_with url: locations_path, method: :get do |form| %>
+    <%= form.text_field :place, value: params[:place] %>
+    <%= form.select :distance, [10, 100, 1000, 10000], selected: params[:distance] %>
+    <%= form.submit %>
+  <% end%>
+
   <div id="locations" class="min-w-full">
     <%= render @locations %>
   </div>

@@ -1,4 +1,5 @@
 <div id="<%= dom_id location %>">
+  <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-s+00ccff(#{location.longitude},#{location.latitude})/#{location.longitude},#{location.latitude},13,0/300x200?access_token=pk.eyJ1Ijoic2FicmljYWtpciIsImEiOiJjbGxzMzVjMDAwdndrM2RwOHJyajdrZnBxIn0.jckmclMtnQb8Tu5O6Qf6uQ" %>
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= location.name %>
