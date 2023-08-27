@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+  has_many :interactions, as: :interactable
+
   enum access: { draft: 'draft', published: 'published', passcode_protected: 'passcode_protected' }
 
   scope :search_by_title, ->(title) { where('title ILIKE ?', "%#{title}%") }

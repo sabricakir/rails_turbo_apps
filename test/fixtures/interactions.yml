@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  action: MyString
+  interactable: one
+  interactable_type: Interactable
+  user: one
+
+two:
+  action: MyString
+  interactable: two
+  interactable_type: Interactable
+  user: two
