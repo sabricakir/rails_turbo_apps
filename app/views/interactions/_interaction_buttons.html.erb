@@ -1,0 +1,7 @@
+<div class="flex items-center gap-x-4 mt-4" id=<%= "#{interactable_type}_#{interactable_id}_interaction_buttons" %>>
+  <% Interaction::INTERACTION_TYPES.each do |interaction_type| %>
+    <div>
+      <%= interaction_button(user: Current.user, interactable_id:, interactable_type:, interaction_type:) %>
+    </div>
+  <% end %>
+</div>

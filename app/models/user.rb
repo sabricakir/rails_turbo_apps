@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :email_verification_tokens, dependent: :destroy
   has_many :password_reset_tokens, dependent: :destroy
   has_many :sessions, dependent: :destroy
+  has_many :interactions
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -29,5 +30,11 @@ class User < ApplicationRecord
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[first_name last_name email]
+  end
+
+  Interaction::INTERACTION_TYPES.each do |interaction_type|
+    define_method(interaction_type.pluralize.to_s) do
+      interactions.where(action: interaction_type)
+    end
   end
 end

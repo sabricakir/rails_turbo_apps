@@ -13,3 +13,8 @@
     <%= link_to 'Back to movies', movies_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
+<div class="flex justify-center items-center">
+  <% if Current.user.present? %>
+    <%= render 'interactions/interaction_buttons', interactable_id: @movie.id, interactable_type: @movie.class.to_s %>
+  <% end %>
+</div>
