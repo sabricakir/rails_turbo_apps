@@ -14,7 +14,7 @@
   </head>
 
 
-  <body data-controller="theme" class="bg-white dark:bg-slate-500 text-black dark:text-white">
+  <body data-controller="theme hotkeys" class="bg-white dark:bg-slate-500 text-black dark:text-white">
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
     <%= turbo_stream_from :global_notification %>
@@ -24,8 +24,20 @@
         <div class="text-lg italic">
           Logo
         </div>
-        <div class="flex space-x-2">
-          <div class="">
+        <div class="flex items-center space-x-4">
+          <div data-controller="dialog" data-action="click->dialog#clickOutsideDialog">
+            <%= button_tag nil, 
+                class: 'hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700',
+                data: { action: 'click->dialog#openDialog', hotkeys_target: 'button', hotkey: 'k' } do %>
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-slate-300 dark:text-slate-400" aria-hidden="true"><path d="m19 19-3.5-3.5"></path><circle cx="11" cy="11" r="6"></circle></svg>
+              <span class="flex-auto">Quick search...</span>
+              <kbd class="font-sans font-semibold dark:text-slate-500"><abbr title="Control" class="no-underline text-slate-300 dark:text-slate-500">Ctrl </abbr> K</kbd>
+            <% end %>
+            <dialog data-dialog-target="dialog" class="w-full md:w-1/2 shadow-lg rounded-lg">
+              <%= render 'movies/search_form' %> 
+            </dialog>
+          </div>
+          <div class="text-white">
             <%= Current.user.email if Current.user.present? %>
           </div>
           <div class="md:hidden" role="button" data-action="click->navbar#toggle">
