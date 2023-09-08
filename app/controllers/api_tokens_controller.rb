@@ -1,14 +1,15 @@
 class ApiTokensController < ApplicationController
-  before_action :set_api_token, only: %i[ show edit update destroy ]
+  before_action :set_api_token, only: %i[show edit update destroy]
 
   # GET /api_tokens or /api_tokens.json
   def index
+    ApiService::Base.refresh_api_info if params[:refresh_api_info]
+    @api_info = Kredis.hash 'api_info'
     @api_tokens = ApiToken.all
   end
 
   # GET /api_tokens/1 or /api_tokens/1.json
-  def show
-  end
+  def show; end
 
   # GET /api_tokens/new
   def new
@@ -16,8 +17,7 @@ class ApiTokensController < ApplicationController
   end
 
   # GET /api_tokens/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /api_tokens or /api_tokens.json
   def create
@@ -25,7 +25,7 @@ class ApiTokensController < ApplicationController
 
     respond_to do |format|
       if @api_token.save
-        format.html { redirect_to api_token_url(@api_token), notice: "Api token was successfully created." }
+        format.html { redirect_to api_token_url(@api_token), notice: 'Api token was successfully created.' }
         format.json { render :show, status: :created, location: @api_token }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class ApiTokensController < ApplicationController
   def update
     respond_to do |format|
       if @api_token.update(api_token_params)
-        format.html { redirect_to api_token_url(@api_token), notice: "Api token was successfully updated." }
+        format.html { redirect_to api_token_url(@api_token), notice: 'Api token was successfully updated.' }
         format.json { render :show, status: :ok, location: @api_token }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class ApiTokensController < ApplicationController
     @api_token.destroy
 
     respond_to do |format|
-      format.html { redirect_to api_tokens_url, notice: "Api token was successfully destroyed." }
+      format.html { redirect_to api_tokens_url, notice: 'Api token was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_token
-      @api_token = ApiToken.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def api_token_params
-      params.require(:api_token).permit(:name, :token)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_api_token
+    @api_token = ApiToken.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def api_token_params
+    params.require(:api_token).permit(:name, :token)
+  end
 end
