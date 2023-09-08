@@ -1,0 +1,29 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex items-center space-x-4">
+    <%= turbo_frame_tag :api_info do %>
+      <div>
+        <% @api_info.to_h.each do |key, value| %>
+          <p class="text-gray-500"><%= key %>: <%= hide_token(value) %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to api_tokens_path(refresh_api_info: true), class: 'text-green-500 hover:text-green-700 hover:cursor-pointer', data: { controller: 'icon', turbo_frame: 'api_info' } do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" data-icon-target="iconElement" data-action="click->icon#addSpinAnimation">
+        <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z" clip-rule="evenodd" />
+      </svg>
+    <% end %>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Api tokens</h1>
+    <%= link_to 'New api token', new_api_token_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="api_tokens" class="min-w-full">
+    <%= render @api_tokens %>
+  </div>
+</div>
