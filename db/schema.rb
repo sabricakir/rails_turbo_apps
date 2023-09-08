@@ -23,12 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_27_123355) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "books", force: :cascade do |t|
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "email_verification_tokens", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_email_verification_tokens_on_user_id"
@@ -57,9 +51,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_27_123355) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
+    t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "row_order"
+    t.index ["list_id"], name: "index_lists_on_list_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -92,17 +88,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_27_123355) do
     t.index ["user_id"], name: "index_password_reset_tokens_on_user_id"
   end
 
-  create_table "post_tags", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_tags_on_post_id"
-    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
-  end
-
   create_table "posts", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
+    t.integer "user_id"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -161,9 +150,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_27_123355) do
 
   add_foreign_key "email_verification_tokens", "users"
   add_foreign_key "interactions", "users"
+  add_foreign_key "lists", "lists"
   add_foreign_key "password_reset_tokens", "users"
-  add_foreign_key "post_tags", "posts"
-  add_foreign_key "post_tags", "tags"
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "lists"
 end
