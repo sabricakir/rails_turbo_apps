@@ -43,7 +43,7 @@
         <%= form.fields_for :post_prices do |post_prices_form| %>
           <div class="my-5">
             <%= post_prices_form.label :cost %>
-            <%= post_prices_form.select :cost, post.dependent_post_prices.present? ? post.dependent_post_prices.pluck(:cost, :id) : [],
+            <%= post_prices_form.select :cost, post.dependent_post_prices.present? ? post.dependent_post_prices.pluck(:cost, :cost) : [],
                                         {include_blank: true}, 
                                         {data: {controller: 'advanced-select'}} %>
           </div>
