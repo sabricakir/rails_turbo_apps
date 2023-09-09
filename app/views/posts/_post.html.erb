@@ -6,7 +6,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>
-    <%= post.user&.email %>
+    <%= post.user.email %>
   </p>
 
   <p class="my-5">
@@ -14,6 +14,20 @@
     <% post.tags.each do |tag| %>
       <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
         <%= tag.name %>
+      </span>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Product:</strong>
+    <%= post.product.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Post Prices:</strong>
+    <% post.post_prices.each do |post_price| %>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+        <%= post_price.cost %>
       </span>
     <% end %>
   </p>
