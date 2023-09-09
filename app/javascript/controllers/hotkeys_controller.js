@@ -3,14 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="hotkeys"
 export default class extends Controller {
   static targets = ["button"]
-  connect() {
-    document.addEventListener("keydown", this.handleKeydown.bind(this))
-  }
 
-  disconnect() {
-    document.removeEventListener("keydown", this.handleKeydown.bind(this))
-  }
-
+  connect() {}
+  
   handleKeydown(event) {
     var pressedCtrl = event.ctrlKey || event.metaKey
     var pressedKey = event.key.toLowerCase()
