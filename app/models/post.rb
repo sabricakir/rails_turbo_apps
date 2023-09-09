@@ -1,6 +1,14 @@
 class Post < ApplicationRecord
   has_and_belongs_to_many :tags
+  has_many :post_prices, dependent: :destroy
   belongs_to :user
+  belongs_to :product
+
+  accepts_nested_attributes_for :post_prices
+
+  def dependent_post_prices
+    product&.product_prices
+  end
   # broadcasts_to ->(_post) { :posts_list }
 
   # after_commit { broadcast_append_to :posts_list, on: :create }

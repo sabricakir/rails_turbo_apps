@@ -11,7 +11,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new(post_params)
+    @post.post_prices.build if @post.post_prices.blank?
   end
 
   # GET /posts/1/edit
@@ -67,6 +68,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :user_id, tag_ids: [])
+    params.fetch(:post, {}).permit(:title, :user_id, :product_id, tag_ids: [], post_prices_attributes: %i[id cost])
   end
 end

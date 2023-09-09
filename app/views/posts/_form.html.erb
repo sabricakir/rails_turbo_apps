@@ -26,6 +26,32 @@
     <%= form.select :tag_ids, Tag.pluck(:name, :id), {}, {multiple: true, data: {controller: 'advanced-select'}} %>
   </div>
 
+  <%= turbo_frame_tag :price_select do %>
+    <div data-controller="form-element">
+      <%= form.button 'Validate', formaction: new_post_path,
+                                  formmethod: :get,
+                                  data: { form_element_target: 'remoteButton', turbo_frame: :price_select } %>
+
+      <div class="my-5">
+        <%= form.label :product %>
+        <%= form.select :product_id, Product.pluck(:name, :id), 
+                                    {include_blank: true}, 
+                                    {data: {controller: 'advanced-select', action: 'change->form-element#autoSubmit' }} %>
+      </div>
+
+      <div class="my-5">
+        <%= form.fields_for :post_prices do |post_prices_form| %>
+          <div class="my-5">
+            <%= post_prices_form.label :cost %>
+            <%= post_prices_form.select :cost, post.dependent_post_prices.present? ? post.dependent_post_prices.pluck(:cost, :id) : [],
+                                        {include_blank: true}, 
+                                        {data: {controller: 'advanced-select'}} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
