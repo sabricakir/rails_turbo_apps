@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_08_105831) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_09_123852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,16 +95,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_105831) do
     t.index ["user_id"], name: "index_password_reset_tokens_on_user_id"
   end
 
+  create_table "post_prices", force: :cascade do |t|
+    t.decimal "cost"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_posts_on_product_id"
   end
 
   create_table "posts_tags", force: :cascade do |t|
     t.bigint "post_id"
     t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_prices", force: :cascade do |t|
+    t.decimal "cost"
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -160,6 +176,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_105831) do
   add_foreign_key "interactions", "users"
   add_foreign_key "lists", "lists"
   add_foreign_key "password_reset_tokens", "users"
+  add_foreign_key "posts", "products"
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "lists"
 end
