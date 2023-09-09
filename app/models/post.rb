@@ -5,6 +5,10 @@ class Post < ApplicationRecord
   belongs_to :product
 
   accepts_nested_attributes_for :post_prices
+
+  def dependent_post_prices
+    product&.product_prices
+  end
   # broadcasts_to ->(_post) { :posts_list }
 
   # after_commit { broadcast_append_to :posts_list, on: :create }
