@@ -14,7 +14,7 @@
   </head>
 
 
-  <body data-controller="theme hotkeys" class="bg-white dark:bg-slate-500 text-black dark:text-white">
+  <body data-controller="theme hotkeys" data-action="keydown->hotkeys#handleKeydown" class="bg-white dark:bg-slate-500 text-black dark:text-white">
     <%= turbo_stream_from :online_users, channel: OnlineChannel %>
     <%= turbo_stream_from :visitors, channel: VisitorsChannel %>
     <%= turbo_stream_from :global_notification %>
