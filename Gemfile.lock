@@ -84,6 +84,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chunky_png (1.4.0)
     city-state (0.1.0)
       rubyzip (>= 1.1)
     concurrent-ruby (1.2.2)
@@ -195,6 +196,10 @@ GEM
     requestjs-rails (0.0.10)
       rails (>= 6.0.0)
     rexml (3.2.5)
+    rqrcode (2.2.0)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.2.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -251,6 +256,7 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara
+  chunky_png (~> 1.4)
   city-state (~> 0.1.0)
   debug
   faker (~> 3.2)
@@ -270,6 +276,7 @@ DEPENDENCIES
   ransack (~> 4.0)
   redis (~> 4.0)
   requestjs-rails (~> 0.0.10)
+  rqrcode (~> 2.2)
   selenium-webdriver
   sprockets-rails
   stimulus-rails

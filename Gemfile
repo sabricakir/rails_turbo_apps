@@ -104,3 +104,7 @@ gem 'view_component', '~> 3.4'
 gem 'geocoder', '~> 1.8'
 
 gem 'mapkick-rb', '~> 0.1.5'
+
+gem 'rqrcode', '~> 2.2'
+
+gem 'chunky_png', '~> 1.4'
