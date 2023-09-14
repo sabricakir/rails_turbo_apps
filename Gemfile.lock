@@ -69,6 +69,7 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     authentication-zero (2.16.33)
+    barby (0.6.8)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   actionpack (>= 7.0.5.1)
   activesupport (>= 7.0.7.1)
   authentication-zero (~> 2.16)
+  barby (~> 0.6.8)
   bcrypt (~> 3.1.7)
   bootsnap
   byebug

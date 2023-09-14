@@ -108,3 +108,5 @@ gem 'mapkick-rb', '~> 0.1.5'
 gem 'rqrcode', '~> 2.2'
 
 gem 'chunky_png', '~> 1.4'
+
+gem "barby", "~> 0.6.8"
