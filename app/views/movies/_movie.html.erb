@@ -4,6 +4,10 @@
     <%= movie.title %>
   </p>
 
+  <p class="my-5">
+    <%= image_tag(movie.qr_code) if movie.qr_code.attached? %>
+  </p>
+
   <% if action_name != "show" %>
     <%= link_to "Show this movie", movie, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this movie', edit_movie_path(movie), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
