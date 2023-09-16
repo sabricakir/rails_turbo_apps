@@ -110,3 +110,5 @@ gem 'rqrcode', '~> 2.2'
 gem 'chunky_png', '~> 1.4'
 
 gem "barby", "~> 0.6.8"
+
+gem "active_storage_validations", "~> 1.0"

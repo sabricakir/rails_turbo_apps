@@ -3,6 +3,7 @@ class Movie < ApplicationRecord
   has_one_attached :qr_code
   has_one_attached :barcode
   has_many_attached :soundtracks
+  has_many_attached :images
 
   enum access: { draft: 'draft', published: 'published', passcode_protected: 'passcode_protected' }
 
@@ -11,6 +12,12 @@ class Movie < ApplicationRecord
   validates :title, presence: true
   validates :access, presence: true
   validates :passcode, presence: true, if: :passcode_protected?
+  validates :images, attached: true,
+                     content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+                     size: { less_than: 20.megabytes }
+  validates :soundtracks, attached: true,
+                          content_type: ['audio/mpeg', 'audio/mp3'],
+                          size: { less_than: 20.megabytes }
 
   after_create :generate_qr_code
   after_create :generate_barcode

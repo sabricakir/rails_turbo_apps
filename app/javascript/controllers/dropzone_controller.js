@@ -29,8 +29,8 @@ export default class extends Controller {
     this.dropZone.on("addedfile", file => {
       setTimeout(() => {
         file.accepted && createDirectUploadController(this, file).start();
-        if(file.type.includes("audio")) {
-          file.previewElement.querySelector("img").src = "https://static.vecteezy.com/system/resources/thumbnails/009/346/118/small/musical-note-flat-icon-png.png"
+        if(!file.type.includes("image")) {
+          file.previewElement.querySelector("img").src = "https://icon-library.com/images/document-icon-png/document-icon-png-17.jpg"
         }
       }, 500);
     })
@@ -41,6 +41,20 @@ export default class extends Controller {
 
     this.dropZone.on("canceled", file => {
       file.controller && file.controller.xhr.abort();
+    })
+
+    this.dropZone.on("maxfilesexceeded", file => {
+      this.dropZone.removeFile(file);
+    })
+    
+    this.dropZone.on("processing", file => {
+      document.querySelector("#submitButton").disabled = true;
+      document.querySelector("#submitButton").classList.add("opacity-50");
+    })
+
+    this.dropZone.on("queuecomplete", file => {
+      document.querySelector("#submitButton").disabled = false;
+      document.querySelector("#submitButton").classList.remove("opacity-50");
     })
   }
 
@@ -106,14 +120,17 @@ class DirectUploadController {
   bindProgressEvent(xhr) {
     this.xhr = xhr;
     this.xhr.upload.addEventListener("progress", event => {
-      const progress = event.loaded / event.total * 100;
-      this.uploadRequestDidProgress(progress);
+      this.uploadRequestDidProgress(event);
     })
   }
 
-  uploadRequestDidProgress(progress) {
-    this.file.upload.progress = progress;
-    this.emitDropzoneUploading();
+  uploadRequestDidProgress(event) {
+    const element = this.source.element;
+    const progress = (event.loaded / event.total) * 100;
+    findElement(
+      this.file.previewTemplate,
+      ".dz-upload"
+    ).style.width = `${progress}%`;
   }
 
   emitDropzoneUploading() {

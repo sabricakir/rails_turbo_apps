@@ -28,15 +28,43 @@
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium mb-1">Images:</strong>
+    <% if movie.images.attached? %>
+      <div class="w-full grid grid-cols-4 gap-4">
+        <% movie.images.each do |image| %>
+          <div class="bg-white p-4 rounded shadow">
+            <%= image_tag image, class: 'mx-auto w-24 h-24' %>
+            <%= link_to 'Kaldır', 
+                        attachment_path(image.id,  params: { redirect_url: request.url }), 
+                        class: 'text-center bg-red-500 hover:bg-red-700 text-white font-bold mt-2 py-2 px-4 rounded-full mx-auto block',
+                        data: { turbo_method: :delete } %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p> No images attached. </p>
+    <% end %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Soundtracks:</strong>
     <% if movie.soundtracks.attached? %>
       <div class="w-full flex flex-col space-y-4">
         <% movie.soundtracks.each do |soundtrack| %>
-          <figure class="flex justify-between items-center">
-            <figcaption class="text-sky-500"><%= soundtrack.filename %></figcaption>
-            <audio controls src="<%= rails_blob_url(soundtrack) %>">
-            </audio>
-          </figure>
+          <div class="flex justify-end items-center space-x-2">
+            <figure class="w-full flex justify-end items-center space-x-2">
+              <figcaption class="text-sky-500 w-1/3"><%= soundtrack.filename %></figcaption>
+              <audio controls src="<%= rails_blob_url(soundtrack) %>" class="w-2/3">
+              </audio>
+            </figure>
+            <%= link_to attachment_path(soundtrack.id,  params: { redirect_url: request.url }), 
+                        class: 'flex items-center justify-center font-bold text-red-500 hover:text-red-700',
+                        data: { turbo_method: :delete } do %>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% else %>

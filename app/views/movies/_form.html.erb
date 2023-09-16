@@ -31,21 +31,21 @@
     </div>
 
     <div class="my-5">
-      <%= form.label :soundtracks %>
-      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 gap-x-4 gap-y-12 justify-items-center border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
+      <%= form.label :images %>
+      <div class="dropzone dropzone-default dz-clickable mt-4" 
            data-controller="dropzone" 
            data-dropzone-max-file-size="20" 
            data-dropzone-max-files="20"
-           data-dropzone-accepted-files=".mp3"
+           data-dropzone-accepted-files=".png,.jpg,.jpeg"
            data-upload-multiple="true">
-        <%= form.file_field :soundtracks, 
+        <%= form.file_field :images, 
                             multiple:true,
                             direct_upload: true,
                             data: { dropzone_target: 'input' },
                             hidden: true,
                             disabled: true,
                             class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <div class="dropzone-msg dz-message needsclick col-span-4 flex justify-center items-center">
+        <div class="dropzone-msg dz-message needsclick">
           <div class="grid justify-items-center text-center dropzone-msg-desc">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="35" viewBox="0 0 36 35" fill="none">
               <path d="M3.49983 34.9999C2.71553 34.9999 2.03868 34.7152 1.46928 34.1458C0.899917 33.5764 0.615234 32.8996 0.615234 32.1153V3.88467C0.615234 3.10037 0.899917 2.42352 1.46928 1.85412C2.03868 1.28472 2.71553 1.00002 3.49983 1.00002H22.6805V8.93462H26.7113V12.9846H34.6151V32.1153C34.6151 32.8996 34.3304 33.5764 33.761 34.1458C33.1916 34.7152 32.5148 34.9999 31.7305 34.9999H3.49983ZM7.11523 27.4192H28.2689L21.9151 18.9539L16.0459 26.5153L11.9036 21.2577L7.11523 27.4192ZM29.1152 10.5807V6.53072H25.0844V4.26152H29.1152V0.230774H31.3843V4.26152H35.4151V6.53072H31.3843V10.5807H29.1152Z" fill="#16303E"/>
@@ -56,14 +56,42 @@
               </label>
               <p class="pl-1">or drag and drop</p>
             </div>
-            <p class="text-xs md:mt-0 mt-2 leading-5 text-gray-600">MP3 up to 20MB</p>
+            <p class="text-xs md:mt-0 mt-2 leading-5 text-gray-600">PNG, JPG up to 20MB</p>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="my-5" data-controller="file-field">
+      <div class="mt-2 flex items-center gap-x-3">
+        <%= form.file_field :soundtracks, 
+                            multiple: true,
+                            accept: '.mp3,.mpeg',
+                            data: { file_field_target: 'input', action: 'change->file-field#listFiles' },
+                            class: 'hidden rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50' %>
+        <button type="button" 
+                class="flex items-center space-x-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100"
+                data-action="click->file-field#openInput">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                </svg>
+                <p> Upload Soundtracks </p>
+        </button>
+      </div>
+
+      <ul class="mt-2 flex flex-col items-start space-y-4" data-file-field-target="fileList">
+      </ul>
+
+      <li class="hidden w-1/2 flex items-center justify-between gap-x-6 py-2 px-4 bg-gray-100 rounded-lg" data-file-field-target="template">
+        <div class="flex justify-between items-center w-full">
+          <p class="text-sm font-semibold leading-6 text-gray-900" id="fileName">FileName</p>
+          <p class="rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset text-green-700 bg-green-50 ring-green-600/20" id="fileSize">FileSize</p>
+        </div>
+      </li>
+    </div>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", id: "submitButton" %>
   </div>
 <% end %>
