@@ -8,7 +8,12 @@
     <%= link_to 'New movie', new_movie_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="movies" class="min-w-full">
-    <%= render @movies %>
+  <div id="movies" class="min-w-full my-4">
+    <% @movies.each do |movie| %>
+      <div class="flex space-x-2 items-center"> 
+        <p> <%= movie.title %> </p>
+        <%= link_to 'Show Details', movie, class: 'text-sky-500 underline hover:text-sky-600' %>
+      </div>
+    <% end %>
   </div>
 </div>

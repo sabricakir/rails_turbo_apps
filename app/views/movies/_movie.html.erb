@@ -5,11 +5,43 @@
   </p>
 
   <p class="my-5">
-    <%= image_tag(movie.qr_code) if movie.qr_code.attached? %>
+    <strong class="block font-medium mb-1">Access:</strong>
+    <%= movie.access %>
   </p>
 
   <p class="my-5">
-    <%= image_tag(movie.barcode) if movie.barcode.attached? %>
+    <strong class="block font-medium mb-1">Barcode:</strong>
+    <% if movie.barcode.attached? %>
+      <%= image_tag(movie.barcode) %>
+    <% else %>
+      <p> No barcode attached. </p>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">QR Code:</strong>
+    <% if movie.qr_code.attached? %>
+      <%= image_tag(movie.qr_code) %>
+    <% else %>
+      <p> No QR code attached. </p>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Soundtracks:</strong>
+    <% if movie.soundtracks.attached? %>
+      <div class="w-full flex flex-col space-y-4">
+        <% movie.soundtracks.each do |soundtrack| %>
+          <figure class="flex justify-between items-center">
+            <figcaption class="text-sky-500"><%= soundtrack.filename %></figcaption>
+            <audio controls src="<%= rails_blob_url(soundtrack) %>">
+            </audio>
+          </figure>
+        <% end %>
+      </div>
+    <% else %>
+      <p> No soundtracks attached. </p>
+    <% end %>
   </p>
 
   <% if action_name != "show" %>
