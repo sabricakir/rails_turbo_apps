@@ -32,7 +32,7 @@
 
     <div class="my-5">
       <%= form.label :soundtracks %>
-      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 gap-x-4 gap-y-12 border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
+      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 gap-x-4 gap-y-12 justify-items-center border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
            data-controller="dropzone" 
            data-dropzone-max-file-size="20" 
            data-dropzone-max-files="20"
@@ -45,9 +45,19 @@
                             hidden: true,
                             disabled: true,
                             class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <div class="dropzone-msg dz-message needsclick col-span-4 pt-8"> 
-          <h3 class="dropzone-msg-title text-lg">Drag here to upload or click here to browse</h3>
-          <span class="dropzone-msg-desc text-sm">20 MB file size maximum, allowed file type is just mp3.</span>
+        <div class="dropzone-msg dz-message needsclick col-span-4 flex justify-center items-center">
+          <div class="grid justify-items-center text-center dropzone-msg-desc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="35" viewBox="0 0 36 35" fill="none">
+              <path d="M3.49983 34.9999C2.71553 34.9999 2.03868 34.7152 1.46928 34.1458C0.899917 33.5764 0.615234 32.8996 0.615234 32.1153V3.88467C0.615234 3.10037 0.899917 2.42352 1.46928 1.85412C2.03868 1.28472 2.71553 1.00002 3.49983 1.00002H22.6805V8.93462H26.7113V12.9846H34.6151V32.1153C34.6151 32.8996 34.3304 33.5764 33.761 34.1458C33.1916 34.7152 32.5148 34.9999 31.7305 34.9999H3.49983ZM7.11523 27.4192H28.2689L21.9151 18.9539L16.0459 26.5153L11.9036 21.2577L7.11523 27.4192ZM29.1152 10.5807V6.53072H25.0844V4.26152H29.1152V0.230774H31.3843V4.26152H35.4151V6.53072H31.3843V10.5807H29.1152Z" fill="#16303E"/>
+            </svg>
+            <div class="mt-4 flex text-xs md:text-sm leading-6 text-gray-600 justify-center">
+              <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-orange-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-orange-600">
+                <span>Upload a file</span>
+              </label>
+              <p class="pl-1">or drag and drop</p>
+            </div>
+            <p class="text-xs md:mt-0 mt-2 leading-5 text-gray-600">MP3 up to 20MB</p>
+          </div>
         </div>
       </div>
     </div>
