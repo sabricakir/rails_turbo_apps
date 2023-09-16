@@ -2,6 +2,7 @@ class Movie < ApplicationRecord
   has_many :interactions, as: :interactable
   has_one_attached :qr_code
   has_one_attached :barcode
+  has_many_attached :soundtracks
 
   enum access: { draft: 'draft', published: 'published', passcode_protected: 'passcode_protected' }
 

@@ -10,3 +10,6 @@ pin 'sortablejs', to: 'https://ga.jspm.io/npm:sortablejs@1.15.0/modular/sortable
 pin 'moment', to: 'https://ga.jspm.io/npm:moment@2.29.4/moment.js'
 pin 'stimulus-use', to: 'https://ga.jspm.io/npm:stimulus-use@0.52.0/dist/index.js'
 pin 'mapkick/bundle', to: 'mapkick.bundle.js'
+pin 'dropzone', to: 'https://ga.jspm.io/npm:dropzone@6.0.0-beta.2/dist/dropzone.mjs'
+pin 'just-extend', to: 'https://ga.jspm.io/npm:just-extend@5.1.1/index.esm.js'
+pin '@rails/activestorage', to: 'https://ga.jspm.io/npm:@rails/activestorage@7.0.3-1/app/assets/javascripts/activestorage.esm.js'

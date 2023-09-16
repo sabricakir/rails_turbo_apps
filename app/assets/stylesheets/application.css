@@ -14,6 +14,8 @@
  *= require_self
  */
 @import url("https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css");
+@import url("https://unpkg.com/dropzone@5/dist/min/dropzone.min.css");
+@import url("https://unpkg.com/dropzone@5/dist/min/basic.min.css");
 
 .hover-wrapper .hover-content {
     display: none;
@@ -34,4 +36,18 @@
 
 dialog::backdrop {
     backdrop-filter: blur(10px);
+}
+
+.dropzone {
+    border: 2px dashed black;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.dropzone:hover {
+    background-color: #fcfcfc;
 }
