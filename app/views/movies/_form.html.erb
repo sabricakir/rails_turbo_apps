@@ -29,6 +29,28 @@
       <%= form.label :passcode %>
       <%= form.text_field :passcode, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
+
+    <div class="my-5">
+      <%= form.label :soundtracks %>
+      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
+           data-controller="dropzone" 
+           data-dropzone-max-file-size="20" 
+           data-dropzone-max-files="20"
+           data-dropzone-accepted-files="png jpg jpeg mp3"
+           data-upload-multiple="true">
+        <%= form.file_field :soundtracks, 
+                            multiple:true,
+                            direct_upload: true,
+                            data: { dropzone_target: 'input' },
+                            hidden: true,
+                            disabled: true,
+                            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <div class="dropzone-msg dz-message needsclick col-span-4 pt-8"> 
+          <h3 class="dropzone-msg-title text-lg">Drag here to upload or click here to browse</h3>
+          <span class="dropzone-msg-desc text-sm">20 MB file size maximum, allowed file type is just mp3.</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="inline">

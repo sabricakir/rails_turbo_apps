@@ -81,6 +81,6 @@ class MoviesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def movie_params
-    params.fetch(:movie, {}).permit(:title, :access, :passcode)
+    params.fetch(:movie, {}).permit(:title, :access, :passcode, soundtracks: [])
   end
 end
