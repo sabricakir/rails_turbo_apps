@@ -32,11 +32,11 @@
 
     <div class="my-5">
       <%= form.label :soundtracks %>
-      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
+      <div class="dropzone dropzone-default dz-clickable grid grid-cols-4 gap-x-4 gap-y-12 border-2 border-dashed border-gray-300 rounded-lg overflow-y-auto h-64" 
            data-controller="dropzone" 
            data-dropzone-max-file-size="20" 
            data-dropzone-max-files="20"
-           data-dropzone-accepted-files="png jpg jpeg mp3"
+           data-dropzone-accepted-files=".mp3"
            data-upload-multiple="true">
         <%= form.file_field :soundtracks, 
                             multiple:true,

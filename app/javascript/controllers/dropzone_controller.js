@@ -29,6 +29,9 @@ export default class extends Controller {
     this.dropZone.on("addedfile", file => {
       setTimeout(() => {
         file.accepted && createDirectUploadController(this, file).start();
+        if(file.type.includes("audio")) {
+          file.previewElement.querySelector("img").src = "https://static.vecteezy.com/system/resources/thumbnails/009/346/118/small/musical-note-flat-icon-png.png"
+        }
       }, 500);
     })
 
