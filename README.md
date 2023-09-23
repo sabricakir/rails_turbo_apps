@@ -1,7 +1,7 @@
 # Rails Turbo Apps
 
 This repository contains a bunch of rails applications with hotwire and stimulus. <br/>
-These applications are inspired by the [SupeRails](https://www.youtube.com/@SupeRails) By Yaroslav Shmarov <br/>
+Some of these applications are inspired by [SupeRails](https://www.youtube.com/@SupeRails) by Yaroslav Shmarov and others I have created.<br/>
 Here is the list of applications: <br/> <br/>
 
 | Project                                                                  | Commit                                                                                                                                                 |
